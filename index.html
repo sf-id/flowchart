@@ -143,21 +143,23 @@ para(path2, top)->op1</div>
             <td style="vertical-align: top;">
             <h3 data-i18n="demo2" data-i18n-options='{"defaultValue": "Demo 2 with color coding (flowstate). Try editing me below"}'></h3>
             <div class="editor-wrapper">
-<div class="editor editor2">st=>start: Start|past:>http://www.google.com[blank]
-e=>end: End|future:>http://www.google.com
-op1=>operation: My Operation|past
-op2=>operation: Stuff|current
-sub1=>subroutine: My Subroutine|invalid
-cond=>condition: Yes
-or No?|approved:>http://www.google.com
-c2=>condition: Good idea|rejected
-io=>inputoutput: catch something...|future
+<div class="editor editor2">st=>start: Start|past
+e=>end: End|past
+op1=>operation: Input|future
+op2=>operation: Output|future
+io1=>inputoutput: Fix Input|current
+io2=>inputoutput: Fix Output|current
+uji1=>condition: Uji Input|rejected
+uji2=>condition: Uji Output|approved
+sub1=>subroutine: Sub Input|invalid
+sub2=>subroutine: Sub Output|invalid
 
-st->op1(right)->cond
-cond(yes, right)->c2
-cond(no)->sub1(left)->op1
-c2(yes)->io->e
-c2(no)->op2->e</div>
+st->op1(right)->sub1
+sub1(right)->uji1(yes, right)->sub2
+uji1(no)->io1(left)->sub1
+sub2->uji2(yes, right)->op2
+uji2(no)->io2(left)->sub1
+op2->e
            </div>
            <!--   Theme:
             <select class="theme">
