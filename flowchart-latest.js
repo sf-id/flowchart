@@ -542,7 +542,7 @@
                 symbols: {},
                 start: null,
                 drawSVG: function(container, options) {
-                    function getDisplaySymbol(s) {
+                    function getdispSymbols(s) {
                         if (dispSymbols[s.key]) return dispSymbols[s.key];
                         switch (s.symbolType) {
                           case "start":
@@ -584,7 +584,7 @@
                     this.diagram = diagram;
                     var dispSymbols = {};
                     !function constructChart(s, prevDisp, prev) {
-                        var dispSymb = getDisplaySymbol(s);
+                        var dispSymb = getdispSymbols(s);
                         return self.start === s ? diagram.startWith(dispSymb) : prevDisp && prev && !prevDisp.pathOk && (prevDisp instanceof Condition ? (prev.yes === s && prevDisp.yes(dispSymb), 
                         prev.no === s && prevDisp.no(dispSymb)) : prevDisp instanceof Parallel ? (prev.path1 === s && prevDisp.path1(dispSymb), 
                         prev.path2 === s && prevDisp.path2(dispSymb), prev.path3 === s && prevDisp.path3(dispSymb)) : prevDisp.then(dispSymb)), 
