@@ -145,16 +145,16 @@ para(path2, top)->op1</div>
             <td style="vertical-align: top;">
             <h3 data-i18n="demo2" data-i18n-options='{"defaultValue": "Demo 2 with color coding (flowstate). Try editing me below"}'></h3>
             <div class="editor-wrapper">
-<div class="editor editor2">st=>start: Start|past
-e=>end: End|past
+<div class="editor editor2">st=>start: Get|past
+e=>end: Set|past
 op1=>operation: Input|future
 op2=>operation: Output|future
-sub1=>subroutine: Sub Input|current
-sub2=>subroutine: Sub Output|current
-uji1=>condition: Uji Input|rejected
-uji2=>condition: Uji Hasil|approved
-io1=>inputoutput: Fix Input|invalid
-io2=>parallel: Fix Output|invalid
+sub1=>subroutine: Let Query|current
+sub2=>subroutine: Let Result|current
+uji1=>condition: Uji Query|rejected
+uji2=>condition: Uji Result|approved
+io1=>inputoutput: Fix Query|invalid
+io2=>parallel: Fix Result|invalid
 st->op1(right)->sub1
 sub1(right)->uji1(yes, right)->sub2
 uji1(no)->io1(left)->sub1
